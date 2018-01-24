@@ -101,7 +101,7 @@ module Stomp
           create_connection(autoflush)
           start_listeners()
         }
-      rescue Timeout::Error
+      rescue => e
         # p [ "cldbg02" ]
         ex = Stomp::Error::StartTimeoutException.new(@start_timeout)
         raise ex
